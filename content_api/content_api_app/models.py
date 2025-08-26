@@ -24,6 +24,9 @@ class Video(BaseContent):
     video_url = models.URLField()
     subtitles_url = models.URLField(blank=True)
 
+    class Meta:
+        ordering = ('order_id',)
+
     def __str__(self):
         return f'Video: {self.title}'
 
@@ -38,6 +41,9 @@ class Audio(BaseContent):
     )
     audio_url = models.URLField()
     text = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ('order_id',)
 
     def __str__(self):
         return f'Audio: {self.title}'
